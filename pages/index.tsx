@@ -1,20 +1,21 @@
-import { useEffect } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEthers } from "@usedapp/core";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
-const Home: NextPage = () => {
-  const { account, isLoading } = useEthers();
+const LandingPage: NextPage = () => {
+  const { account, activateBrowserWallet } = useEthers();
   const router = useRouter();
 
-  useEffect(() => {
+  const openApp = (): void => {
     if (!account) {
-      router.push("/login");
+      activateBrowserWallet();
     }
-  }, [account, router]);
+    router.push("/home");
+  };
 
   return (
     <Box
@@ -23,38 +24,27 @@ const Home: NextPage = () => {
         height: "100vh",
         margin: "0 auto",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      {isLoading && (
-        <Typography
-          variant="h2"
-          gutterBottom
-          component="div"
-          sx={{
-            width: "100%",
-            textAlign: "center",
-          }}
-        >
-          Loading...
-        </Typography>
-      )}
-      {!isLoading && (
-        <Typography
-          variant="h2"
-          gutterBottom
-          component="div"
-          sx={{
-            width: "100%",
-            textAlign: "center",
-          }}
-        >
-          Welcome to SubscriptionDAO
-        </Typography>
-      )}
+      <Typography
+        variant="h2"
+        gutterBottom
+        component="div"
+        sx={{
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        Welcome to SubscriptionDAO
+      </Typography>
+      <Button variant="contained" size="large" onClick={openApp}>
+        Open
+      </Button>
     </Box>
   );
 };
 
-export default Home;
+export default LandingPage;
