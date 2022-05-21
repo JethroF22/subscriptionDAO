@@ -43,9 +43,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function SearchBar(): ReactElement {
+interface Props {
+  sx: any;
+}
+
+function SearchBar({ sx }: Props): ReactElement<Props> {
   return (
-    <Search>
+    <Search sx={sx}>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>

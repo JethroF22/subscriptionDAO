@@ -27,6 +27,7 @@ function Sidebar(): ReactElement {
         height: "100%",
         width: "15%",
         marginTop: "20px",
+        marginRight: "50px",
       }}
     >
       <Card

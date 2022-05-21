@@ -3,8 +3,6 @@ import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
-import { StyledBox } from "./StyledBox";
-
 interface Props {
   name: string;
   iconUrl: string;
@@ -38,7 +36,6 @@ function CreatorListItem({ name, iconUrl }: Props): ReactElement<Props> {
           width: "100%",
           marginLeft: "12px",
         }}
-        // color="text.secondary"
       >
         {name}
       </Typography>
