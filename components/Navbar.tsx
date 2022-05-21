@@ -1,4 +1,5 @@
 import { useState, MouseEvent, ReactElement } from "react";
+import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,6 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 
 import SearchBar from "./SearchBar";
+import NavbarMenuButton from "./NavbarMenuButton";
 
 function Navbar(): ReactElement {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -38,7 +40,11 @@ function Navbar(): ReactElement {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem>
+        <Link href="/profile">
+          <NavbarMenuButton text="Profile" onClick={handleMenuClose} />
+        </Link>
+      </MenuItem>
       <MenuItem onClick={handleMenuClose}>Manage Subscriptions</MenuItem>
       <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
     </Menu>
