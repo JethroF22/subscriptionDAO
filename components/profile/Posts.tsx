@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { alpha } from "@mui/material/styles";
+import Link from "next/link";
 import ImageList from "@mui/material/ImageList";
 import Box from "@mui/material/Box";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -114,9 +114,11 @@ function Posts(): ReactElement {
           >
             Your Posts
           </Typography>
-          <Button variant="outlined" size="large">
-            Create Post
-          </Button>
+          <Link href="/create_post">
+            <Button variant="outlined" size="large">
+              Create Post
+            </Button>
+          </Link>
         </Stack>
       </ImageListItem>
       {posts.map((post) => (
