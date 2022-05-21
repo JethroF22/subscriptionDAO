@@ -6,9 +6,9 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 
-import { Post } from "../types";
+import { UserPost } from "../../types";
 
-function FeedListItem(props: Post): ReactElement<Post> {
+function FeedListItem(props: UserPost): ReactElement<UserPost> {
   const formattedDate = dayjs(props.postTimestamp).format(
     "ddd, MMM D, YYYY h:mm A"
   );

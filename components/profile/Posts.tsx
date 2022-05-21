@@ -7,9 +7,9 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 
-import { UserPost } from "../types";
-import Post from "./posts/Post";
-import SearchBar from "./SearchBar";
+import { UserPost } from "../../types";
+import Post from "../posts/Post";
+import { Button } from "@mui/material";
 
 const posts: UserPost[] = [
   {
@@ -74,7 +74,7 @@ const posts: UserPost[] = [
   },
 ];
 
-function Feed(): ReactElement {
+function Posts(): ReactElement {
   return (
     <ImageList
       sx={{
@@ -90,35 +90,33 @@ function Feed(): ReactElement {
     >
       <ImageListItem
         key="Subheader"
-        cols={2}
-        rows={1}
-        sx={{ marginBottom: "20px", width: "100%" }}
+        sx={{
+          marginBottom: "20px",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+        }}
       >
         <Stack
           direction="row"
-          spacing={1}
+          spacing={5}
           divider={<Divider orientation="vertical" flexItem />}
         >
           <Typography
             variant="h5"
             component="div"
             sx={{
-              fontWeight: "500",
+              fontWeight: "600",
+              textAlign: "center",
             }}
             gutterBottom
           >
-            Posts
+            Your Posts
           </Typography>
-          <Box width="30%">
-            <SearchBar
-              sx={{
-                backgroundColor: alpha("#e5e5e5", 0.25),
-                "&:hover": {
-                  backgroundColor: alpha("#e5e5e5", 0.5),
-                },
-              }}
-            />
-          </Box>
+          <Button variant="outlined" size="large">
+            Create Post
+          </Button>
         </Stack>
       </ImageListItem>
       {posts.map((post) => (
@@ -133,4 +131,4 @@ function Feed(): ReactElement {
   );
 }
 
-export default Feed;
+export default Posts;

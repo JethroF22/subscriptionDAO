@@ -1,4 +1,4 @@
-export interface Post {
+export interface UserPost {
   id: string;
   creatorName: string;
   creatorIconUrl: string;
